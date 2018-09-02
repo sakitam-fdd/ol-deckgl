@@ -1,0 +1,53 @@
+{
+  "name": "ol-deckgl",
+  "version": "0.0.1",
+  "description": "a openlayers extension to deckgl",
+  "author": "FDD <smileFDD@gmail.com>",
+  "homepage": "https://sakitam-fdd.github.io/ol-deckgl",
+  "private": false,
+  "main": "dist/ol-deckgl.common.js",
+  "module": "dist/ol-deckgl.esm.js",
+  "unpkg": "dist/ol-deckgl.js",
+  "namespace": "DeckGl",
+  "types": "types/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakitam-fdd/ol-deckgl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sakitam-fdd/ol-deckgl/issues"
+  },
+  "keywords": [
+    "javascript",
+    "webgis",
+    "canvas",
+    "deckgl",
+    "openlayers",
+    "ol"
+  ],
+  "scripts": {
+    "dev": "rollup -wm -c build/rollup-dev-config.js",
+    "build": "node build/rollup-prod-config.js"
+  },
+  "peerDependencies": {
+    "deck.gl": ">=5.3.4",
+    "ol": ">=5.0.0"
+  },
+  "devDependencies": {
+    "ol": "^5.1.3",
+    "deck.gl": "^5.3.4"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "license": "MIT"
+}

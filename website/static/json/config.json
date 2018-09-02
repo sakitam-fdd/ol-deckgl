@@ -1,0 +1,10 @@
+[
+  {
+    "imgSrc": "./static/images/scatter.jpg",
+    "link": "/building",
+    "url": "./static/examples/scatter/scatter-charts.html",
+    "chart_name": "全国主要城市空气质量",
+    "chart_author": "FDD",
+    "chart_time": "2017.04.07"
+  }
+]
