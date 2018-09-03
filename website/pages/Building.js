@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
-import DeckGl from 'ol-deckgl';
+import DeckGl from '../helper/deckgl';
 import 'ol/ol.css';
 import '../assets/style/art.scss'
 
@@ -31,8 +31,7 @@ class Index extends React.Component {
       layers: [
         new TileLayer({
           source: new XYZ({
-            url: 'http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnline' +
-            'StreetPurplishBlue/MapServer/tile/{z}/{y}/{x}'
+            url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           })
         })
       ]

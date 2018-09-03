@@ -1,7 +1,7 @@
 import { unByKey } from 'ol/Observable';
 import { Object as NObject, Map } from 'ol';
 import { transform } from 'ol/proj'
-import { getTarget, createCanvas } from './helper';
+import { getTarget, createCanvas } from './index';
 const _options = {
   forcedRerender: false, // Force re-rendering
   forcedPrecomposeRerender: false, // force pre re-render
@@ -33,10 +33,11 @@ class DeckGl extends NObject {
    * @param map
    */
   appendTo (map) {
+    const that = this;
     if (map && map instanceof Map) {
       this.$Map = map;
       this.$Map.once('postrender', (event) => {
-        this.render();
+        that.render();
       });
       this.$Map.renderSync();
       this._unRegisterEvents();
@@ -273,22 +274,22 @@ class DeckGl extends NObject {
       const _props = {
         // width: size[0], // Number, required
         // height: size[1],
-        layers: layers,
-        gl: this._canvas.getContext('webgl2'),
-        // layerFilter: ({layer, viewport, isPicking}) => true,
         initialViewState: {
           latitude: nCenter[1],
           longitude: nCenter[0],
-          zoom: zoom,
+          zoom: zoom - 1,
           bearing: 0,
           pitch: 0
-        }
+        },
+        canvas: this._canvas,
+        _customRender: false,
+        layers: layers
       };
       if (!this.deckLayer) {
         this.deckLayer = new deck.Deck(_props); // eslint-disable-line
-        this.clearLayer();
+        // this.clearLayer();
       } else {
-        this.clearLayer();
+        // this.clearLayer();
         this.deckLayer.setProps(Object.assign({
           viewState: _props.initialViewState
         }, _props));
@@ -328,7 +329,7 @@ class DeckGl extends NObject {
     const height = size[1];
     if (!this._canvas) {
       this._canvas = createCanvas(width, height);
-      this.$container.appendChild(this._canvas);
+      document.body.appendChild(this._canvas);
     } else {
       this._canvas.width = width;
       this._canvas.height = height;
