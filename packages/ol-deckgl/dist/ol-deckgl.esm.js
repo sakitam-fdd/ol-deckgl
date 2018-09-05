@@ -1,13 +1,13 @@
 /*!
  * author: FDD <smileFDD@gmail.com> 
  * ol-deckgl v0.0.1
- * build-time: 2018-9-3 10:44
+ * build-time: 2018-9-5 22:3
  * LICENSE: MIT
  * (c) 2018-2018 https://sakitam-fdd.github.io/ol-deckgl
  */
 import { unByKey } from 'ol/Observable';
 import { Object as Object$1, Map } from 'ol';
-import { fromLonLat } from 'ol/proj';
+import { transform } from 'ol/proj';
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -262,7 +262,7 @@ var DeckGl = function (_NObject) {
       var view = this.$Map.getView();
       var zoom = view.getZoom();
       var center = view.getCenter();
-      var nCenter = fromLonLat(center);
+      var nCenter = transform(center, view.getProjection(), 'EPSG:4326');
       var _props = {
         layers: layers,
         gl: this._canvas.getContext('webgl2'),

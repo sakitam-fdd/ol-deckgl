@@ -1,7 +1,7 @@
 /*!
  * author: FDD <smileFDD@gmail.com> 
  * ol-deckgl v0.0.1
- * build-time: 2018-9-3 10:44
+ * build-time: 2018-9-5 22:3
  * LICENSE: MIT
  * (c) 2018-2018 https://sakitam-fdd.github.io/ol-deckgl
  */
@@ -264,7 +264,7 @@ var DeckGl = function (_NObject) {
       var view = this.$Map.getView();
       var zoom = view.getZoom();
       var center = view.getCenter();
-      var nCenter = proj.fromLonLat(center);
+      var nCenter = proj.transform(center, view.getProjection(), 'EPSG:4326');
       var _props = {
         layers: layers,
         gl: this._canvas.getContext('webgl2'),

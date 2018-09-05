@@ -34,7 +34,7 @@
     view: new ol.View({
       center: [-74, 40.72],
       zoom: 13,
-      projection: 'EPSG:4326'
+      projection: 'EPSG:3857'
     }),
     layers: [
       new ol.layer.Tile({
@@ -82,7 +82,7 @@
 
   function render () {
     var zoom = map.getView().getZoom();
-    var center = map.getView().getCenter();
+    var center = ol.proj.transform(map.getView().getCenter(), 'EPSG:3857', 'EPSG:4326');
     if (!deckgl) {
       props.initialViewState = {
         latitude: center[1],
