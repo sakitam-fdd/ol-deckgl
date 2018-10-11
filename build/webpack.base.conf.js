@@ -26,6 +26,7 @@ module.exports = {
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [
+          utils.resolve('src'),
           utils.resolve('website')
         ],
         options: {
@@ -40,41 +41,6 @@ module.exports = {
           utils.resolve('website'),
           utils.resolve('node_modules/webpack-dev-server/client')
         ],
-        options: {
-          cacheDirectory: true,
-          presets: [
-            [
-              'env', {
-                'targets': {
-                  'browsers': ['> 1%', 'last 2 versions', 'not ie <= 8']
-                },
-                'modules': false
-              }
-            ],
-            'stage-2',
-            'react'
-          ],
-          plugins: [
-            'react-hot-loader/babel',
-            'transform-react-remove-prop-types',
-            'transform-class-properties',
-            'transform-object-assign',
-            'transform-object-rest-spread',
-            [
-              'transform-runtime',
-              {
-                'polyfill': false
-              }
-            ],
-            [
-              'import',
-              {
-                'libraryName': 'antd',
-                'style': false
-              }
-            ]
-          ]
-        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

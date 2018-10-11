@@ -272,8 +272,6 @@ class DeckGl extends NObject {
       const center = view.getCenter();
       const nCenter = transform(center, view.getProjection(), 'EPSG:4326');
       const _props = {
-        // width: size[0], // Number, required
-        // height: size[1],
         initialViewState: {
           latitude: nCenter[1],
           longitude: nCenter[0],
@@ -282,7 +280,7 @@ class DeckGl extends NObject {
           pitch: 0
         },
         canvas: this._canvas,
-        _customRender: false,
+        _customRender: true,
         layers: layers
       };
       if (!this.deckLayer) {
