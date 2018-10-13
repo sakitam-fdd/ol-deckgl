@@ -2,6 +2,7 @@ import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import OSM from 'ol/source/OSM.js';
+import { fromLonLat } from 'ol/proj';
 import { GeoJsonLayer } from '@deck.gl/layers';
 import { scaleLinear, scaleThreshold } from 'd3-scale';
 import DeckGLLayer from '../src/ol-deck';
@@ -16,7 +17,7 @@ const map = new Map({
   ],
   loadTilesWhileAnimating: true,
   view: new View({
-    center: [0, 0],
+    center: fromLonLat([-100, 38]),
     zoom: 6
   })
 });

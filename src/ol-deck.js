@@ -69,30 +69,9 @@ class DeckLayer extends ImageLayer {
    * re-draw
    */
   redraw (event) {
-    const _extent = this.options.extent || this._getMapExtent();
-    this.setExtent(_extent);
-    this.draw(event);
-  }
-
-  /**
-   * get map current extent
-   * @returns {{createCenterConstraint?, createResolutionConstraint?, createRotationConstraint?, isNoopAnimation?}|module:ol/View|*|module:ol/extent~Extent}
-   * @private
-   */
-  _getMapExtent () {
-    if (!this.getMap()) return;
-    const size = this._getMapSize();
-    const _view = this.getMap().getView();
-    return _view && _view.calculateExtent(size);
-  }
-
-  /**
-   * get size
-   * @private
-   */
-  _getMapSize () {
-    if (!this.getMap()) return;
-    return this.getMap().getSize();
+    this.getSource().refresh();
+    // this.draw(event);
+    // this.getMap().render()
   }
 
   /**
@@ -105,7 +84,6 @@ class DeckLayer extends ImageLayer {
    * @returns {*}
    */
   canvasFunction (extent, resolution, pixelRatio, size, projection) {
-    this.clearCanvas();
     if (!this._canvas) {
       this._canvas = createCanvas(size[0], size[1], pixelRatio);
     } else {
@@ -170,6 +148,7 @@ class DeckLayer extends ImageLayer {
   render () {
     const context = this.getContext();
     if (!context) return;
+    this.clearCanvas();
     const viewState = this._getViewState();
     const { layers } = this.getProps();
     if (this.deck) {
@@ -197,7 +176,9 @@ class DeckLayer extends ImageLayer {
     return this;
   }
 
-  draw () {}
+  draw () {
+    this.render();
+  }
 
   /**
    * set map

@@ -2,6 +2,7 @@ import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import OSM from 'ol/source/OSM.js';
+import { fromLonLat } from 'ol/proj';
 import { PolygonLayer } from '@deck.gl/layers';
 import DeckGLLayer from '../src/ol-deck';
 import { TripsLayer } from '@deck.gl/experimental-layers';
@@ -18,8 +19,8 @@ const map = new Map({
   ],
   loadTilesWhileAnimating: true,
   view: new View({
-    center: [0, 0],
-    zoom: 6
+    center: fromLonLat([-74, 40.72]),
+    zoom: 13
   })
 });
 
