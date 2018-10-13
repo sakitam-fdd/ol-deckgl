@@ -45,14 +45,32 @@ class DeckLayer extends ImageLayer {
         ratio: options.hasOwnProperty('ratio') ? options.ratio : 1
       })
     );
+  }
 
-    this.on('precompose', this.redraw.bind(this), this);
+  /**
+   * set props
+   * @param props
+   * @returns {DeckLayer}
+   */
+  setProps (props) {
+    this.props = Object.assign(this.props, props);
+    return this;
+  }
+
+  /**
+   * get props
+   * @returns {*}
+   */
+  getProps () {
+    return this.props;
   }
 
   /**
    * re-draw
    */
   redraw (event) {
+    const _extent = this.options.extent || this._getMapExtent();
+    this.setExtent(_extent);
     this.draw(event);
   }
 
@@ -87,6 +105,7 @@ class DeckLayer extends ImageLayer {
    * @returns {*}
    */
   canvasFunction (extent, resolution, pixelRatio, size, projection) {
+    this.clearCanvas();
     if (!this._canvas) {
       this._canvas = createCanvas(size[0], size[1], pixelRatio);
     } else {
@@ -94,18 +113,25 @@ class DeckLayer extends ImageLayer {
       this._canvas.height = size[1];
     }
     if (resolution <= this.get('maxResolution')) {
-      this.render({
-        extent: extent,
-        size: size,
-        pixelRatio: pixelRatio,
-        projection: projection
-      });
+      this.render();
     } else {
       // console.warn('超出所设置最大分辨率！')
     }
     return this._canvas;
   }
 
+  /**
+   * clear gl context
+   */
+  clearCanvas () {
+    if (!this._context) return;
+    this._context.clear(this._context.COLOR_BUFFER_BIT | this._context.DEPTH_BUFFER_BIT);
+  }
+
+  /**
+   * get canvas context
+   * @returns {*}
+   */
   getContext () {
     if (!this._context) {
       this._context = createContext(this._canvas, Object.assign(glOptions, this.options.glOptions || {}));
@@ -113,6 +139,11 @@ class DeckLayer extends ImageLayer {
     return this._context;
   }
 
+  /**
+   * get map view props
+   * @returns {{latitude: *, longitude: *, zoom: number, bearing: number, pitch: number, maxZoom: number}}
+   * @private
+   */
   _getViewState () {
     const map = this.getMap();
     const view = map.getView();
@@ -132,11 +163,15 @@ class DeckLayer extends ImageLayer {
     }
   }
 
+  /**
+   * render sense
+   * @returns {*}
+   */
   render () {
     const context = this.getContext();
     if (!context) return;
     const viewState = this._getViewState();
-    const { layers } = this.props;
+    const { layers } = this.getProps();
     if (this.deck) {
       this.deck.setProps({ viewState, layers });
       this.deck._drawLayers();
@@ -155,6 +190,9 @@ class DeckLayer extends ImageLayer {
       this.deck.setProps({
         layers: layers
       });
+      if (this.options.animation) {
+        this.on('precompose', this.redraw.bind(this), this);
+      }
     }
     return this;
   }

@@ -1,15 +1,9 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "private": false,
   "scripts": {
     "start": "webpack-dev-server --hot --open --config webpack.config.js",
-    "clean": "lerna clean",
     "lint": "eslint --fix --ext .js,.jsx packages/ol-echarts/src packages/ol3-echarts/src",
     "prettify": "prettier --write packages/ol-echarts/src/**/*.js packages/ol3-echarts/src/**/*.js",
-    "bootstrap": "lerna bootstrap",
-    "publish-packages": "lerna publish --force-publish",
     "precommit": "lint-staged",
     "website": "webpack-dev-server --inline --config build/webpack.preview.conf.js",
     "generate": "webpack --config build/webpack.generate.conf.js",
