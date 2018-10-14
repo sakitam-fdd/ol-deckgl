@@ -5,5 +5,5 @@
 ## Start
 
 ```bash
-npm run start
+npm run website
 ```

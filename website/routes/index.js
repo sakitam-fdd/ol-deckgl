@@ -1,7 +1,10 @@
 import React from 'react'; // eslint-disable-line
 import { Route, Switch, Redirect } from 'react-router-dom'; // eslint-disable-line
 import Index from '../pages/Index';
+import Brushing from '../pages/Brushing';
 import Building from '../pages/Building';
+import Highway from '../pages/Highway';
+import HexagonLayer from '../pages/HexagonLayer';
 
 const mainRouter = [
   {
@@ -18,6 +21,30 @@ const mainRouter = [
     route: {
       path: '/building',
       component: Building
+    }
+  },
+  {
+    name: 'highway',
+    key: 'highway',
+    route: {
+      path: '/highway',
+      component: Highway
+    }
+  },
+  {
+    name: 'hexagon',
+    key: 'hexagon',
+    route: {
+      path: '/hexagon',
+      component: HexagonLayer
+    }
+  },
+  {
+    name: 'brushing',
+    key: 'brushing',
+    route: {
+      path: '/brushing',
+      component: Brushing
     }
   }
 ];
