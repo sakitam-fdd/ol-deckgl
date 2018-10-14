@@ -79,11 +79,6 @@ const webpackConfig = merge(require('./webpack.base.conf'), {
         from: 'website/static',
         to: 'static',
         ignore: ['.*']
-      },
-      {
-        from: 'docs',
-        to: 'docs',
-        ignore: ['.*']
       }
     ])
   ],
