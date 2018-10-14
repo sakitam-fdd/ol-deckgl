@@ -51,18 +51,12 @@ class Index extends Component {
                 backgroundImage: `url('${item.imgSrc}')`
               }}>
               <div className="chart_hover animation clearfix">
-                <div className="chart_magnifier_left" onClick={event => this.handleClick(event, 'origin', item)}>
-                  <div>
-                    <img src={magnifier} />
-                  </div>
-                  <div>基本示例</div>
-                </div>
                 <Link to={item.link}>
                   <div className="chart_magnifier_right">
                     <div>
                       <img src={magnifier} />
                     </div>
-                    <div>React示例</div>
+                    <div>查看示例</div>
                   </div>
                 </Link>
               </div>

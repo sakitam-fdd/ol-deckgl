@@ -5,7 +5,7 @@ import 'ol/ol.css';
 import '../assets/style/art.scss'
 import OSM from 'ol/source/OSM';
 import { fromLonLat } from 'ol/proj';
-import DeckGLLayer from '../../src/ol-deck';
+import DeckGLLayer from '../../src';
 import { PolygonLayer } from '@deck.gl/layers';
 import { TripsLayer } from '@deck.gl/experimental-layers';
 

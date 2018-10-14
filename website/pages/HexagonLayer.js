@@ -5,7 +5,7 @@ import 'ol/ol.css';
 import '../assets/style/art.scss'
 import OSM from 'ol/source/OSM';
 import { fromLonLat } from 'ol/proj';
-import DeckGLLayer from '../../src/ol-deck';
+import DeckGLLayer from '../../src';
 import { HexagonLayer } from '@deck.gl/layers';
 
 class Index extends React.Component {
@@ -20,7 +20,6 @@ class Index extends React.Component {
 
     this.container = null;
     this.map = null;
-    this.inited = false;
     this.deckLayer = null;
   }
 
@@ -38,7 +37,7 @@ class Index extends React.Component {
       loadTilesWhileAnimating: true,
       view: new View({
         center: fromLonLat([52.232395363869415, -1.4157267858730052]),
-        zoom: 13
+        zoom: 7
       })
     });
     this.deckLayer = new DeckGLLayer({

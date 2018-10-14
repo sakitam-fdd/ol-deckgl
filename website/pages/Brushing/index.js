@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import 'ol/ol.css';
-import '../assets/style/art.scss'
+import '../../assets/style/art.scss'
 import OSM from 'ol/source/OSM';
 import { scaleLinear } from 'd3-scale';
 import { fromLonLat } from 'ol/proj';
-import DeckGLLayer from '../../../src/ol-deck';
+import DeckGLLayer from '../../../src';
 import ArcBrushingLayer from './arc-brushing-layer/arc-brushing-layer';
 import ScatterplotBrushingLayer from './scatterplot-brushing-layer/scatterplot-brushing-layer';
 

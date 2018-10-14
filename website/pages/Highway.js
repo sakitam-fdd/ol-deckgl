@@ -5,7 +5,7 @@ import 'ol/ol.css';
 import '../assets/style/art.scss'
 import OSM from 'ol/source/OSM';
 import { fromLonLat } from 'ol/proj';
-import DeckGLLayer from '../../src/ol-deck';
+import DeckGLLayer from '../../src';
 import { GeoJsonLayer } from '@deck.gl/layers';
 import { scaleLinear, scaleThreshold } from 'd3-scale';
 
@@ -59,7 +59,7 @@ class Index extends React.Component {
       loadTilesWhileAnimating: true,
       view: new View({
         center: fromLonLat([-100, 38]),
-        zoom: 13
+        zoom: 6
       })
     });
 

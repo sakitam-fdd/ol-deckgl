@@ -45,7 +45,7 @@ class Header extends Component {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li id="nav-github">
-              <a href="https://github.com/sakitam-fdd/ol3Echarts" target="_blank">
+              <a href="https://github.com/sakitam-fdd/ol-deckgl" target="_blank">
                 <img src={github} width="18" />
               </a>
             </li>

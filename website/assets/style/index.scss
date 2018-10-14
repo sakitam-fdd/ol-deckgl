@@ -78,31 +78,9 @@
     line-height: 16px;
     vertical-align: middle;
   }
-  .chart_magnifier_left {
-    opacity: 0;
-    width: 50%;
-    height: 100%;
-    float: left;
-    text-align: center;
-    line-height: 206px;
-    div:nth-child(1) {
-      height: 60%;
-    }
-    div:nth-child(2) {
-      height: 28px;
-      line-height: 28px;
-    }
-    &:hover {
-      opacity: 1;
-      cursor: pointer;
-      .chart_hover {
-        background: rgba(0, 0, 0, .3);
-      }
-    }
-  }
   .chart_magnifier_right {
     opacity: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
     float: right;
     text-align: center;
