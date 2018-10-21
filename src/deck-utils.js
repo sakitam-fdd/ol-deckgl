@@ -1,5 +1,5 @@
 // from https://github.com/uber/deck.gl/blob/6.2-release/modules/mapbox/src/deck-utils.js
-import { Deck } from '@deck.gl/core';
+import Deck from './deck';
 
 function filterLayer (deck, layer) {
   const { layerFilter } = deck.props.userData;

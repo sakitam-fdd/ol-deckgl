@@ -1,4 +1,4 @@
-import Deck from './deck';
+import { Deck } from '@deck.gl/core';
 import { toLonLat } from 'ol/proj';
 import ImageLayer from 'ol/layer/Image';
 import ImageCanvas from 'ol/source/ImageCanvas';
@@ -20,6 +20,13 @@ class DeckLayer extends ImageLayer {
      * @private
      */
     this._canvas = null;
+
+    /**
+     * 图层是否初始化成功
+     * @type {boolean}
+     * @private
+     */
+    this._isRendered = false;
 
     /**
      * props
@@ -56,6 +63,7 @@ class DeckLayer extends ImageLayer {
     this.props = Object.assign(this.props, props, {
       id: ''
     });
+    this.redraw();
     return this;
   }
 
@@ -148,8 +156,9 @@ class DeckLayer extends ImageLayer {
    * @returns {*}
    */
   render () {
+    const map = this.getMap();
     const context = this.getContext();
-    if (!context) return;
+    if (!context || !map) return;
     this.clearCanvas();
     const viewState = this._getViewState();
     const { layers } = this.getProps();
@@ -159,8 +168,11 @@ class DeckLayer extends ImageLayer {
     } else {
       this.deck = new Deck({
         controller: false,
-        _customRender: true,
+        _customRender: () => {},
         viewState: viewState,
+        width: '100%',
+        height: '100%',
+        useDevicePixels: true,
         glOptions: {
           'alpha': true,
           'antialias': true,
@@ -174,6 +186,14 @@ class DeckLayer extends ImageLayer {
       if (this.options.animation) {
         this.on('precompose', this.redraw.bind(this), this);
       }
+    }
+    if (!this._isRendered) {
+      this.once('precompose', () => {
+        setTimeout(() => {
+          this.draw();
+        }, 300);
+      }, this);
+      this._isRendered = true;
     }
     return this;
   }

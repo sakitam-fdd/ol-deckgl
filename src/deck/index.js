@@ -245,9 +245,9 @@ export default class Deck {
   // If canvas size has changed, reads out the new size and returns true
   _checkForCanvasSizeChange () {
     const { canvas } = this;
-    if (canvas && (this.width !== canvas.width || this.height !== canvas.height)) {
-      this.width = canvas.width;
-      this.height = canvas.height;
+    if (canvas && (this.width !== (canvas.clientWidth || canvas.width) || this.height !== (canvas.clientHeight || canvas.height))) {
+      this.width = canvas.clientWidth || canvas.width;
+      this.height = canvas.clientHeight || canvas.height;
       return true;
     }
     return false;

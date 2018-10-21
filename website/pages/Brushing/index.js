@@ -124,9 +124,9 @@ class Index extends React.Component {
     };
     if (!this.inited) {
       this.inited = true;
-      this.deckLayer = new DeckGLLayer('deck', props, {
-        'animation': true,
-        'renderer': 'webgl'
+      this.deckLayer = new DeckGLLayer(props, {
+        map: this.map,
+        projection: 'EPSG:3857'
       });
 
       this.map.addLayer(this.deckLayer);
