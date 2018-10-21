@@ -53,7 +53,9 @@ class DeckLayer extends ImageLayer {
    * @returns {DeckLayer}
    */
   setProps (props) {
-    this.props = Object.assign(this.props, props);
+    this.props = Object.assign(this.props, props, {
+      id: ''
+    });
     return this;
   }
 
@@ -70,8 +72,6 @@ class DeckLayer extends ImageLayer {
    */
   redraw (event) {
     this.getSource().refresh();
-    // this.draw(event);
-    // this.getMap().render()
   }
 
   /**
@@ -126,7 +126,7 @@ class DeckLayer extends ImageLayer {
     const map = this.getMap();
     const view = map.getView();
     const zoom = view.getZoom();
-    const maxZoom = view.getMaxZoom();
+    // const maxZoom = view.getMaxZoom();
     const center = view.getCenter();
     const latLon = toLonLat(center);
     const pitch = 0;
@@ -137,7 +137,9 @@ class DeckLayer extends ImageLayer {
       zoom: zoom - 1,
       bearing: bearing,
       pitch: pitch,
-      maxZoom: maxZoom
+      // maxZoom: maxZoom,
+      nearZMultiplier: deck.height ? 1 / deck.height : 1,
+      farZMultiplier: 1
     }
   }
 
