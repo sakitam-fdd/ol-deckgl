@@ -598,31 +598,48 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@deck.gl/core@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.npmjs.org/@deck.gl/core/-/core-6.2.0.tgz#07b057db58d50fa14e9433268addfbe6880bfb34"
+"@deck.gl/core@^6.3.0-beta.2":
+  version "6.3.0-beta.2"
+  resolved "https://registry.npmjs.org/@deck.gl/core/-/core-6.3.0-beta.2.tgz#f167ecc0b13134856e1dea0f3a96f5f3b85715e1"
   dependencies:
-    luma.gl "^6.2.0"
-    math.gl "^2.1.0"
-    mjolnir.js "^1.0.0"
-    probe.gl "^2.0.0"
+    luma.gl "^6.3.0-beta"
+    math.gl "^2.2.0"
+    mjolnir.js "^2.0.0"
+    probe.gl "^2.0.1"
     seer "^0.2.4"
     viewport-mercator-project "^6.0.0"
 
-"@deck.gl/experimental-layers@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.npmjs.org/@deck.gl/experimental-layers/-/experimental-layers-6.2.0.tgz#c622af2b3c37600ca2ec666cc3941f908f83a9dd"
+"@deck.gl/experimental-layers@^6.3.0-beta.2":
+  version "6.3.0-beta.2"
+  resolved "https://registry.npmjs.org/@deck.gl/experimental-layers/-/experimental-layers-6.3.0-beta.2.tgz#7006e527e8eb82116ee367d182a1a4338f908902"
   dependencies:
-    "@deck.gl/core" "^6.2.0"
-    "@deck.gl/layers" "^6.2.0"
+    "@deck.gl/core" "^6.3.0-beta.2"
+    "@deck.gl/layers" "^6.3.0-beta.2"
 
-"@deck.gl/layers@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.npmjs.org/@deck.gl/layers/-/layers-6.2.0.tgz#f59c93f2140e3f9a36e5c14d66f21fdc11093ef5"
+"@deck.gl/layers@^6.3.0-beta.2":
+  version "6.3.0-beta.2"
+  resolved "https://registry.npmjs.org/@deck.gl/layers/-/layers-6.3.0-beta.2.tgz#806c761834d10633a8ad226cb3ab5220525d950f"
   dependencies:
-    "@deck.gl/core" "^6.2.0"
+    "@deck.gl/core" "^6.3.0-beta.2"
     d3-hexbin "^0.2.1"
     earcut "^2.0.6"
+
+"@deck.gl/react@^6.3.0-beta.2":
+  version "6.3.0-beta.2"
+  resolved "https://registry.npmjs.org/@deck.gl/react/-/react-6.3.0-beta.2.tgz#6295f23bb03187dbf0b2f1775d5b85d3b354b956"
+  dependencies:
+    "@deck.gl/core" "^6.3.0-beta.2"
+    prop-types "^15.6.0"
+
+"@mapbox/point-geometry@~0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
+
+"@mapbox/vector-tile@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.npmjs.org/@mapbox/vector-tile/-/vector-tile-1.3.1.tgz#d3a74c90402d06e89ec66de49ec817ff53409666"
+  dependencies:
+    "@mapbox/point-geometry" "~0.1.0"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -2138,6 +2155,14 @@ decamelize@^2.0.0:
   resolved "https://registry.npmjs.org/decamelize/-/decamelize-2.0.0.tgz#656d7bbc8094c4c788ea53c5840908c9c7d063c7"
   dependencies:
     xregexp "4.0.0"
+
+deck.gl@^6.3.0-beta.2:
+  version "6.3.0-beta.2"
+  resolved "https://registry.npmjs.org/deck.gl/-/deck.gl-6.3.0-beta.2.tgz#61d7fecf944c3c67f029a0d07261a712f9390fe3"
+  dependencies:
+    "@deck.gl/core" "^6.3.0-beta.2"
+    "@deck.gl/layers" "^6.3.0-beta.2"
+    "@deck.gl/react" "^6.3.0-beta.2"
 
 decode-uri-component@^0.2.0:
   version "0.2.0"
@@ -4520,9 +4545,9 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-luma.gl@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.npmjs.org/luma.gl/-/luma.gl-6.2.0.tgz#449760dc735e2e89a55bb78697c8dd1093626b2c"
+luma.gl@^6.3.0-beta:
+  version "6.3.0-beta.1"
+  resolved "https://registry.npmjs.org/luma.gl/-/luma.gl-6.3.0-beta.1.tgz#f63db4ab44ff0453cd627c4af2312259312abf1a"
   dependencies:
     "@babel/runtime" "^7.0.0"
     math.gl "^2.2.0"
@@ -4771,10 +4796,11 @@ mixin-object@^2.0.1:
     for-in "^0.1.3"
     is-extendable "^0.1.1"
 
-mjolnir.js@^1.0.0:
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/mjolnir.js/-/mjolnir.js-1.2.2.tgz#65938d6b443fed5b5c65456e6c934b01fece3610"
+mjolnir.js@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/mjolnir.js/-/mjolnir.js-2.0.0.tgz#8475d2fb3b09780dbff122f245c6b3ddc46fc41e"
   dependencies:
+    "@babel/runtime" "^7.0.0"
     hammerjs "^2.0.8"
 
 mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
@@ -5419,7 +5445,7 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
-pbf@3.1.0:
+pbf@3.1.0, pbf@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/pbf/-/pbf-3.1.0.tgz#f70004badcb281761eabb1e76c92f179f08189e9"
   dependencies:
@@ -5820,7 +5846,7 @@ private@^0.1.6:
   version "0.1.8"
   resolved "https://registry.npmjs.org/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probe.gl@^2.0.0, probe.gl@^2.0.1:
+probe.gl@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/probe.gl/-/probe.gl-2.0.1.tgz#e42dfe02eca9ef262cdf89a24e1a4c0856e989e0"
   dependencies:
@@ -5850,7 +5876,7 @@ promised-io@*:
   version "0.3.5"
   resolved "https://registry.npmjs.org/promised-io/-/promised-io-0.3.5.tgz#4ad217bb3658bcaae9946b17a8668ecd851e1356"
 
-prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:

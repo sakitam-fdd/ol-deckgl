@@ -5,6 +5,7 @@ import Brushing from '../pages/Brushing';
 import Building from '../pages/Building';
 import Highway from '../pages/Highway';
 import HexagonLayer from '../pages/HexagonLayer';
+import Vector from '../pages/Vector';
 
 const mainRouter = [
   {
@@ -45,6 +46,14 @@ const mainRouter = [
     route: {
       path: '/brushing',
       component: Brushing
+    }
+  },
+  {
+    name: 'vector',
+    key: 'vector',
+    route: {
+      path: '/vector',
+      component: Vector
     }
   }
 ];

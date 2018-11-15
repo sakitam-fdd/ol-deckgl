@@ -51,9 +51,7 @@ class Index extends React.Component {
       layers: [
         new TileLayer({
           preload: 4,
-          source: new OSM({
-            url: 'https://cartodb-basemaps-{a-d}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
-          })
+          source: new OSM()
         })
       ],
       loadTilesWhileAnimating: true,
