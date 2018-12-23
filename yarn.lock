@@ -598,37 +598,38 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@deck.gl/core@^6.3.0-beta.2":
-  version "6.3.0-beta.2"
-  resolved "https://registry.npmjs.org/@deck.gl/core/-/core-6.3.0-beta.2.tgz#f167ecc0b13134856e1dea0f3a96f5f3b85715e1"
+"@deck.gl/core@^7.0.0-alpha.2":
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/@deck.gl/core/-/core-7.0.0-alpha.2.tgz#82547e2f268374404a12217acd472d52f204a841"
   dependencies:
-    luma.gl "^6.3.0-beta"
+    gl-matrix "^3.0.0-0"
+    luma.gl "^7.0.0-alpha.2"
     math.gl "^2.2.0"
     mjolnir.js "^2.0.0"
     probe.gl "^2.0.1"
     seer "^0.2.4"
     viewport-mercator-project "^6.0.0"
 
-"@deck.gl/experimental-layers@^6.3.0-beta.2":
-  version "6.3.0-beta.2"
-  resolved "https://registry.npmjs.org/@deck.gl/experimental-layers/-/experimental-layers-6.3.0-beta.2.tgz#7006e527e8eb82116ee367d182a1a4338f908902"
+"@deck.gl/experimental-layers@^7.0.0-alpha.2":
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/@deck.gl/experimental-layers/-/experimental-layers-7.0.0-alpha.2.tgz#1e92139c10b41c9272ed775d38ad327eba3da393"
   dependencies:
-    "@deck.gl/core" "^6.3.0-beta.2"
-    "@deck.gl/layers" "^6.3.0-beta.2"
+    "@deck.gl/core" "^7.0.0-alpha.2"
+    "@deck.gl/layers" "^7.0.0-alpha.2"
 
-"@deck.gl/layers@^6.3.0-beta.2":
-  version "6.3.0-beta.2"
-  resolved "https://registry.npmjs.org/@deck.gl/layers/-/layers-6.3.0-beta.2.tgz#806c761834d10633a8ad226cb3ab5220525d950f"
+"@deck.gl/layers@^7.0.0-alpha.2":
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/@deck.gl/layers/-/layers-7.0.0-alpha.2.tgz#98d3d1c0832e53c20e7729d1f9e742bde554b939"
   dependencies:
-    "@deck.gl/core" "^6.3.0-beta.2"
+    "@deck.gl/core" "^7.0.0-alpha.2"
     d3-hexbin "^0.2.1"
     earcut "^2.0.6"
 
-"@deck.gl/react@^6.3.0-beta.2":
-  version "6.3.0-beta.2"
-  resolved "https://registry.npmjs.org/@deck.gl/react/-/react-6.3.0-beta.2.tgz#6295f23bb03187dbf0b2f1775d5b85d3b354b956"
+"@deck.gl/react@^7.0.0-alpha.2":
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/@deck.gl/react/-/react-7.0.0-alpha.2.tgz#b2c65c80f71fae209043a6c99d801f734216bcec"
   dependencies:
-    "@deck.gl/core" "^6.3.0-beta.2"
+    "@deck.gl/core" "^7.0.0-alpha.2"
     prop-types "^15.6.0"
 
 "@mapbox/point-geometry@~0.1.0":
@@ -2156,13 +2157,13 @@ decamelize@^2.0.0:
   dependencies:
     xregexp "4.0.0"
 
-deck.gl@^6.3.0-beta.2:
-  version "6.3.0-beta.2"
-  resolved "https://registry.npmjs.org/deck.gl/-/deck.gl-6.3.0-beta.2.tgz#61d7fecf944c3c67f029a0d07261a712f9390fe3"
+deck.gl@^7.0.0-alpha.2:
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/deck.gl/-/deck.gl-7.0.0-alpha.2.tgz#da8094520422639cb8c819f1fbb13a4958a7c354"
   dependencies:
-    "@deck.gl/core" "^6.3.0-beta.2"
-    "@deck.gl/layers" "^6.3.0-beta.2"
-    "@deck.gl/react" "^6.3.0-beta.2"
+    "@deck.gl/core" "^7.0.0-alpha.2"
+    "@deck.gl/layers" "^7.0.0-alpha.2"
+    "@deck.gl/react" "^7.0.0-alpha.2"
 
 decode-uri-component@^0.2.0:
   version "0.2.0"
@@ -3261,6 +3262,10 @@ gl-mat3@^1.0.0:
 gl-mat4@^1.1.4:
   version "1.2.0"
   resolved "https://registry.npmjs.org/gl-mat4/-/gl-mat4-1.2.0.tgz#49d8a7636b70aa00819216635f4a3fd3f4669b26"
+
+gl-matrix@^3.0.0-0:
+  version "3.0.0-0"
+  resolved "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.0.0-0.tgz#0add17f60a2b4929e48f2543d31072188d874969"
 
 gl-quat@^1.0.0:
   version "1.0.0"
@@ -4545,9 +4550,9 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-luma.gl@^6.3.0-beta:
-  version "6.3.0-beta.1"
-  resolved "https://registry.npmjs.org/luma.gl/-/luma.gl-6.3.0-beta.1.tgz#f63db4ab44ff0453cd627c4af2312259312abf1a"
+luma.gl@^7.0.0-alpha.2:
+  version "7.0.0-alpha.2"
+  resolved "https://registry.npmjs.org/luma.gl/-/luma.gl-7.0.0-alpha.2.tgz#d83ebc095418557c6252a803f8f735de8b59a009"
   dependencies:
     "@babel/runtime" "^7.0.0"
     math.gl "^2.2.0"

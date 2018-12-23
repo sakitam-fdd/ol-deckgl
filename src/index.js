@@ -10,6 +10,12 @@ const glOptions = {
   preserveDrawingBuffer: true
 };
 
+// from https://github.com/maptalks/maptalks.mapboxgl/blob/5db0b124981f59e597ae66fb68c9763c53578ac2/index.js#L201
+// const MAX_RES = 2 * 6378137 * Math.PI / (256 * Math.pow(2, 20));
+// function getZoom (res) {
+//   return 19 - Math.log(res / MAX_RES) / Math.LN2;
+// }
+
 class DeckLayer extends ImageLayer {
   constructor (props, options = {}) {
     super(options);
@@ -39,13 +45,20 @@ class DeckLayer extends ImageLayer {
      */
     this.options = options;
 
+    /**
+     * bind context
+     * @type {any}
+     */
+    this.redraw = this.redraw.bind(this)
+    this.canvasFunction = this.canvasFunction.bind(this)
+
     this.setSource(
       new ImageCanvas({
         logo: options.logo,
         state: options.state,
         attributions: options.attributions,
         resolutions: options.resolutions,
-        canvasFunction: this.canvasFunction.bind(this),
+        canvasFunction: this.canvasFunction,
         projection: options.hasOwnProperty('projection')
           ? options.projection
           : 'EPSG:3857',
@@ -133,6 +146,7 @@ class DeckLayer extends ImageLayer {
   _getViewState () {
     const map = this.getMap();
     const view = map.getView();
+    // const res = view.getResolution();
     const zoom = view.getZoom();
     // const maxZoom = view.getMaxZoom();
     const center = view.getCenter();
@@ -184,7 +198,7 @@ class DeckLayer extends ImageLayer {
         layers: layers
       });
       if (this.options.animation) {
-        this.on('precompose', this.redraw.bind(this), this);
+        this.on('precompose', this.redraw);
       }
     }
     if (!this._isRendered) {

@@ -16,10 +16,10 @@
     ]
   },
   "dependencies": {
-    "deck.gl": "^6.3.0-beta.2",
-    "@deck.gl/core": "^6.3.0-beta.2",
-    "@deck.gl/experimental-layers": "^6.3.0-beta.2",
-    "@deck.gl/layers": "^6.3.0-beta.2",
+    "deck.gl": "^7.0.0-alpha.2",
+    "@deck.gl/core": "^7.0.0-alpha.2",
+    "@deck.gl/experimental-layers": "^7.0.0-alpha.2",
+    "@deck.gl/layers": "^7.0.0-alpha.2",
     "d3-request": "^1.0.6",
     "d3-scale": "^2.1.2",
     "ol": "^5.1.3",
